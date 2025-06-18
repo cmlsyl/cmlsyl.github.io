@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <script src="./queens.js"></script>
+    <style>
+      body {
+        background: #333;
+        display: flex;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-size: 3rem;
+      }
+      #restart-btn {
+        cursor: pointer;
+      }
+
+      #board table {
+        margin: auto;
+      }
+      #board td {
+        width: 100px;
+        height: 100px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+      }
+      .modal-content {
+        background: goldenrod;
+        border: 1px solid #fff;
+        border-radius: 8px;
+        margin: 300px auto;
+        width: 25%;
+        min-width: 400px;
+        font-family: 'Courier New';
+        text-align: center;
+      }
+      .modal-text {
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding-block: 10px;
+      }
+      .modal-btn {
+        background-color: #33333333;
+        display: block;
+        cursor: pointer;
+        padding: 16px;
+        margin-top: 20px;
+        width: calc(100% - 32px);
+        font-size: 1.8rem;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <span id="restart-btn" onclick="restart()">Restart</span>
+        <span id="timer">00:00</span>
+      </div>
+      <div id="board"></div>
+    </div>
+    <div id="success-modal" class="modal" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <h1>Congratulations!</h1>
+        <div class="modal-text"><span>Your Time: </span><span id="modal-timer"></span></div>
+        <div class="modal-text"><span>Record: </span><span id="modal-timer-record"></span></div>
+        <span class="modal-btn" onclick="restart()">Replay</span>
+      </div>
+    </div>
+    <span style="display:none;" id="crown">
+      <svg style="margin:auto;" viewBox="0 0 128 128" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.0" width="64" height="64">
+        <g>
+          <path
+            d="m 64.000012,31.484944 28.902346,36.127871 28.902242,-36.127871 -7.22553,65.030147 -101.158086,0 L 6.1954237,31.484944 35.0977,67.612815 64.000012,31.484944 z"
+            style="fill:#ffcd00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:4.33534527;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+          />
+        </g>
+      </svg>
+    </span>
+  </body>
+</html>
